@@ -23,7 +23,6 @@ public class PStableStatusServiceImpl implements PStableStatusService {
 
 	@Override
 	public List<TableStatus> getTableStatus() {
-		// TODO Auto-generated method stub
 		return psTableStatusRepository.findAll();
 	}
 	

@@ -11,6 +11,7 @@ public interface PStableService {
 	//get islemi icin
 	//List kullanılmasını sebebi birden fazla data dönmesinden dolayı
 	List<PStable> getAllPScafe();
-	
+	PStable deleteTable(Integer id);
+	PStable updateTable(Integer id, PStable psTable);
 
 }
