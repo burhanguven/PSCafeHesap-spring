@@ -8,5 +8,6 @@ import com.Hesap.PSHesap.model.TableStatus;
 
 public interface PStableStatusRepository extends JpaRepository<TableStatus, Integer> {
 	
+	TableStatus findFirstById(Integer id);
 	
 }
