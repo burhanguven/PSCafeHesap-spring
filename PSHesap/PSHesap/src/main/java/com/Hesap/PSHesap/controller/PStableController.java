@@ -3,6 +3,7 @@ package com.Hesap.PSHesap.controller;
 import com.Hesap.PSHesap.model.PStable;
 import com.Hesap.PSHesap.service.PStableService;
 
+import java.text.ParseException;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -41,7 +42,7 @@ public class PStableController {
 		return psTableService.deleteTable(id);
 	}
 	@PutMapping("/{id}")
-	public PStable updatePStable(@PathVariable("id") Integer id, @Valid @RequestBody PStable psTable)
+	public PStable updatePStable(@PathVariable("id") Integer id, @Valid @RequestBody PStable psTable) throws ParseException
 	{
 		return psTableService.updateTable(id, psTable);
 	}

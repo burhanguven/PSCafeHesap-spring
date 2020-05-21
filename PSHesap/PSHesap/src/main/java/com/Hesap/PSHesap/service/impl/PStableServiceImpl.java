@@ -1,6 +1,9 @@
 package com.Hesap.PSHesap.service.impl;
 
 import java.awt.print.Book;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,14 +40,23 @@ public class PStableServiceImpl implements PStableService{
 	}
 
 	@Override
-	public PStable updateTable(Integer id, PStable psTable) {
+	public PStable updateTable(Integer id, PStable psTable) throws ParseException {
 		
 		PStable psTableUpdate=psTableRepository.findFirstById(id);
+		
+		Date date=new Date();
+		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String strDate=formatter.format(date);
+		Date endDate=formatter.parse(strDate);
+		
 		if(psTableUpdate==null)
 		{
 			return psTableRepository.findFirstById(id);
 		}
 		psTable.setId(psTableUpdate.getId());
+		//güncelleme işlemlerinde enddate ve startdate i null atmaması için tekrardan set ediyorum 
+		psTable.setEndDate(endDate);
+		psTable.setStartDate(psTableUpdate.getStartDate());
 		
 		return psTableRepository.save(psTable);
 	}

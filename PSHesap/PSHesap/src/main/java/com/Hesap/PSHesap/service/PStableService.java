@@ -1,5 +1,6 @@
 package com.Hesap.PSHesap.service;
 
+import java.text.ParseException;
 import java.util.List;
 
 import com.Hesap.PSHesap.model.PStable;
@@ -12,6 +13,6 @@ public interface PStableService {
 	//List kullanılmasını sebebi birden fazla data dönmesinden dolayı
 	List<PStable> getAllPScafe();
 	PStable deleteTable(Integer id);
-	PStable updateTable(Integer id, PStable psTable);
+	PStable updateTable(Integer id, PStable psTable) throws ParseException;
 
 }
